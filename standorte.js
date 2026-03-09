@@ -5,7 +5,68 @@ const standorteDaten = [
     "lat": 48.86083333,
     "lon": 10.1375,
     "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/8000_Bereich Stuttgart/8100_AALEN/_standortinfo/8100_2013xxxx_Tagebuch.xlsx",
-    "zufahrt": []
+    "zufahrt": [
+                [
+            10.137398123558228,
+            48.860704765764496
+          ],
+          [
+            10.137990641280425,
+            48.85998819332781
+          ],
+          [
+            10.139437081602182,
+            48.859466522141105
+          ],
+          [
+            10.140578549567692,
+            48.85770082547461
+          ],
+          [
+            10.139951177862002,
+            48.85651410473034
+          ],
+          [
+            10.138426316076874,
+            48.85627331737817
+          ],
+          [
+            10.135855834781779,
+            48.85747150964917
+          ],
+          [
+            10.135123901277723,
+            48.85919708541627
+          ],
+          [
+            10.131547649821869,
+            48.86072301008329
+          ],
+          [
+            10.131002572261622,
+            48.86086212272957
+          ],
+          [
+            10.13027423586766,
+            48.86024074991823
+          ],
+          [
+            10.12709774939924,
+            48.85975230219327
+          ],
+          [
+            10.1255744722543,
+            48.85921001598925
+          ],
+          [
+            10.123816576361577,
+            48.859020039433034
+          ],
+          [
+            10.123289322845238,
+            48.85893318192424
+          ]
+    ]
   },
   {
     "nummer": "4100",
@@ -600,7 +661,52 @@ const standorteDaten = [
     "lat": 48.38194444,
     "lon": 9.948611111,
     "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/8000_Bereich Stuttgart/8500_ULM-KUHBERG/_standortinfo/8500_20140411_Tagebuch.xlsx",
-    "zufahrt": []
+    "zufahrt": [
+                [
+            9.948283198357672,
+            48.38184850741584
+          ],
+          [
+            9.94830302638951,
+            48.38177891850495
+          ],
+          [
+            9.948149104711973,
+            48.38175139524185
+          ],
+          [
+            9.948237905680088,
+            48.38149188945667
+          ],
+          [
+            9.947302535485534,
+            48.3806189966524
+          ],
+          [
+            9.948770711486134,
+            48.3804106011122
+          ],
+          [
+            9.951600502326016,
+            48.380854915102645
+          ],
+          [
+            9.95196162626118,
+            48.38129529328435
+          ],
+          [
+            9.952050427229324,
+            48.381881147638154
+          ],
+          [
+            9.953317321036337,
+            48.382062014062996
+          ],
+          [
+            9.953542283488616,
+            48.38251024547648
+          ]
+    ]
   },
   {
     "nummer": "5045",
@@ -1059,7 +1165,7 @@ const standorteDaten = [
     "zufahrt": []
   },
   {
-    "nummer": "1A",
+    "nummer": "5300",
     "name": "WALDBURG",
     "lat": null,
     "lon": null,
@@ -1827,7 +1933,7 @@ const standorteDaten = [
     "zufahrt": []
   },
   {
-    "nummer": "1A",
+    "nummer": "5900",
     "name": "VILLINGEN-SCHWENNINGEN",
     "lat": null,
     "lon": null,
@@ -1892,7 +1998,7 @@ const standorteDaten = [
   },
   {
     "nummer": "2007",
-    "name": "AHUETTE_EIFEL -Standortaufgabe am 03.04.24 -",
+    "name": "AHUETTE_EIFEL -AUFGEGEBEN",
     "lat": 50.33972222,
     "lon": 6.769166667,
     "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/2000_Bereich Haardtkopf/2007_AHUETTE_EIFEL -Standortaufgabe am 03.04.24 -/_standortinfo/2007_00000000_Tagebuch.xlsx",
@@ -2384,7 +2490,32 @@ const standorteDaten = [
     "lat": 47.555,
     "lon": 10.32,
     "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/5000_Bereich Bodensee/5400_GRUENTEN/_standortinfo/5400_00000000_Tagebuch.xlsx",
-    "zufahrt": []
+    "zufahrt": [
+                [
+            10.290313309000368,
+            47.565537774643786
+          ],
+          [
+            10.289122210735883,
+            47.56621743341003
+          ],
+          [
+            10.288666358371614,
+            47.566668880688354
+          ],
+          [
+            10.286492790864742,
+            47.566722202406595
+          ],
+          [
+            10.285638747049404,
+            47.56679326804041
+          ],
+          [
+            10.284770965263988,
+            47.56704199699897
+          ]
+    ]
   },
   {
     "nummer": "1025",
@@ -2472,14 +2603,6 @@ const standorteDaten = [
     "lat": 50.3425,
     "lon": 6.595277778,
     "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/2000_Bereich Haardtkopf/2005_JUENKERATH_EIFEL/_standortinfo/2005_00000000_Tagebuch.xlsx",
-    "zufahrt": []
-  },
-  {
-    "nummer": "8100",
-    "name": "AALEN",
-    "lat": 48.86083333,
-    "lon": 10.1375,
-    "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/8000_Bereich Stuttgart/8100_AALEN/_standortinfo/Anfahrtsplan/Vorlagen_Archiv/8100_00000000_Tagebuch.xlsx",
     "zufahrt": []
   },
   {
@@ -3212,7 +3335,7 @@ const standorteDaten = [
   },
   {
     "nummer": "2026",
-    "name": "",
+    "name": "KORDEL",
     "lat": 49.83083333,
     "lon": 6.636388889,
     "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/2000_Bereich Haardtkopf/2026 KORDEL/_standortinfo/2026_00000000_Tagebuch.xlsx",

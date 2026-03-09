@@ -2,6 +2,11 @@
 // Dashboard & Way Instructions
 // ==========================================
 
+let dashMobileMapInstance = null;
+let dashMobileTileLayer = null;
+let dashMobileMarker = null;
+let dashMobileRouteLayer = null;
+
 function openDashboard(nummer) {
     const standort = standorte.find(s => String(s.nummer) === String(nummer));
     if (!standort) return;
@@ -37,11 +42,80 @@ function openDashboard(nummer) {
     fetchWeather(standort.lat, standort.lon);
     updateDWDDetailBox(standort.lat, standort.lon);
 
+    setupMobileMap(standort);
+
     modal.classList.remove("hidden");
     modal.classList.add("modal-enter");
     setTimeout(() => modal.classList.add("modal-enter-active"), 10);
 
     displayWayInstructions();
+}
+
+function setupMobileMap(standort) {
+    // Initialisierung, falls noch nicht geschehen
+    if (!dashMobileMapInstance) {
+        dashMobileMapInstance = L.map('dashMobileMap', {
+            zoomControl: true,
+            attributionControl: false
+        });
+    }
+    
+    // Thema-Status prüfen und Tile-Layer passend laden (verhindert grelle Karte im Darkmode)
+    const isDarkMode = !document.documentElement.classList.contains('light');
+    const isPlayfulTheme = document.documentElement.classList.contains('playful');
+    const useDarkMap = isDarkMode || isPlayfulTheme;
+    const tileUrl = useDarkMap 
+        ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png' 
+        : 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        
+    // Tile-Layer aktualisieren falls das Theme gewechselt wurde
+    if (dashMobileTileLayer) {
+        dashMobileMapInstance.removeLayer(dashMobileTileLayer);
+    }
+    dashMobileTileLayer = L.tileLayer(tileUrl, { maxZoom: 19 }).addTo(dashMobileMapInstance);
+
+    // Alte Marker & Routen entfernen
+    if (dashMobileMarker) {
+        dashMobileMapInstance.removeLayer(dashMobileMarker);
+    }
+    if (dashMobileRouteLayer) {
+        dashMobileMapInstance.removeLayer(dashMobileRouteLayer);
+        dashMobileRouteLayer = null;
+    }
+
+    // Neuen blauen Marker setzen
+    const mobileIcon = L.divIcon({
+        html: `<div style="width: 16px; height: 16px; background-color: #3b82f6; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.4);"></div>`,
+        className: 'custom-mobile-marker',
+        iconSize: [16, 16],
+        iconAnchor: [8, 8]
+    });
+    
+    dashMobileMarker = L.marker([standort.lat, standort.lon], { icon: mobileIcon }).addTo(dashMobileMapInstance);
+
+    // Zufahrtsroute anzeigen, sofern vorhanden
+    if (standort.zufahrt && standort.zufahrt.length > 0) {
+        const routeLatLngs = standort.zufahrt.map(coord => [coord[1], coord[0]]);
+        dashMobileRouteLayer = L.polyline(routeLatLngs, {
+            color: '#ef4444',
+            weight: 4,
+            dashArray: '8, 8'
+        }).addTo(dashMobileMapInstance);
+        
+        // Karte so heranzoomen, dass Route und Marker reinpassen
+        const bounds = dashMobileRouteLayer.getBounds();
+        bounds.extend([standort.lat, standort.lon]);
+        dashMobileMapInstance.fitBounds(bounds, { padding: [20, 20], maxZoom: 16 });
+    } else {
+        dashMobileMapInstance.setView([standort.lat, standort.lon], 13);
+    }
+
+    // WICHTIG: Behebt Leaflet-Rendering-Fehler in versteckten Modals
+    setTimeout(() => {
+        if (dashMobileMapInstance) {
+            dashMobileMapInstance.invalidateSize();
+        }
+    }, 250);
 }
 
 function closeDashboard() {
