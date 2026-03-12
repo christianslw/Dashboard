@@ -316,7 +316,36 @@ const standorteDaten = [
     "lat": 49.5075,
     "lon": 9.7825,
     "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/9000_Bereich Mühlacker/9200_BAD_MERGENTHEIM/_standortinfo/9200_20240924_Tagebuch.xlsx",
-    "zufahrt": []
+    "zufahrt": [
+                [
+            9.782444125140586,
+            49.50751187891066
+          ],
+          [
+            9.782553580588996,
+            49.50762818285102
+          ],
+          [
+            9.782553580588996,
+            49.50778325434101
+          ],
+          [
+            9.78285209544805,
+            49.50780263824291
+          ],
+          [
+            9.782802342972047,
+            49.50873305649287
+          ],
+          [
+            9.785022311347802,
+            49.5086221293771
+          ],
+          [
+            9.7881567173701,
+            49.50815692140904
+          ]
+    ]
   },
   {
     "nummer": "3000",
@@ -405,7 +434,44 @@ const standorteDaten = [
     "lat": 49.18472222,
     "lon": 9.665555556,
     "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/8000_Bereich Stuttgart/8300_WALDENBURG/_standortinfo/8300_2024xxxx_Tagebuch.xlsx",
-    "zufahrt": []
+    "zufahrt": [
+                [
+            9.66541065803682,
+            49.18466542921615
+          ],
+          [
+            9.664538526399582,
+            49.18352566783889
+          ],
+          [
+            9.663599716060816,
+            49.181937438578075
+          ],
+          [
+            9.661640489569407,
+            49.180668915342665
+          ],
+          [
+            9.6587574936176,
+            49.178773886921135
+          ],
+          [
+            9.656304457834722,
+            49.17825723198408
+          ],
+          [
+            9.64997062677719,
+            49.17765481648527
+          ],
+          [
+            9.648792236803814,
+            49.177277399614155
+          ],
+          [
+            9.648316813408371,
+            49.176855279630644
+          ]
+    ]
   },
   {
     "nummer": "8600",
@@ -1690,14 +1756,6 @@ const standorteDaten = [
     "lat": null,
     "lon": null,
     "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/5000_Bereich Bodensee/5401_MEMMINGEN/_standortinfo/5401_00000000_Tagebuch.xlsx",
-    "zufahrt": []
-  },
-  {
-    "nummer": "9200",
-    "name": "BAD_MERGENTHEIM",
-    "lat": 49.5075,
-    "lon": 9.7825,
-    "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/9000_Bereich Mühlacker/9200_BAD_MERGENTHEIM/_standortinfo/Archiv/9200_00000000_Tagebuch.xlsx",
     "zufahrt": []
   },
   {
