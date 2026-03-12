@@ -1167,8 +1167,8 @@ const standorteDaten = [
   {
     "nummer": "5300",
     "name": "WALDBURG",
-    "lat": null,
-    "lon": null,
+    "lat": 47.774470,
+    "lon": 9.726089,
     "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/5000_Bereich Bodensee/5300_WALDBURG/_standortinfo/1A_5300_20130513_Tagebuch.xlsx",
     "zufahrt": []
   },
@@ -1935,10 +1935,55 @@ const standorteDaten = [
   {
     "nummer": "5900",
     "name": "VILLINGEN-SCHWENNINGEN",
-    "lat": null,
-    "lon": null,
+    "lat": 48.02754654822073,
+    "lon": 8.478279932935493,
     "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/5000_Bereich Bodensee/5900_VILLINGEN-SCHWENNINGEN/_standortinfo/1A_5900_00000000_Tagebuch.xlsx",
-    "zufahrt": []
+    "zufahrt": [
+      [
+            8.47830472802005,
+            48.027536760606324
+          ],
+          [
+            8.47850135266134,
+            48.02749790910991
+          ],
+          [
+            8.4789459767062,
+            48.02684979163277
+          ],
+          [
+            8.47840519546142,
+            48.02625065995139
+          ],
+          [
+            8.477285537602313,
+            48.025641425005745
+          ],
+          [
+            8.477089615724452,
+            48.02523274331301
+          ],
+          [
+            8.476761247932899,
+            48.02522969312608
+          ],
+          [
+            8.476628988684269,
+            48.02544015559931
+          ],
+          [
+            8.476834218553876,
+            48.02579397463208
+          ],
+          [
+            8.47666547399379,
+            48.026068487725524
+          ],
+          [
+            8.476157939862247,
+            48.02621343314473
+          ]
+    ]
   },
   {
     "nummer": "1038",
@@ -3382,43 +3427,11 @@ const standorteDaten = [
     "zufahrt": []
   },
   {
-    "nummer": "8023",
-    "name": "Gnadental",
-    "lat": 48.81333333,
-    "lon": 9.441388889,
-    "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/General/infrastruktur/Projektmanagement/projekte_aufgaben/Projekt_Rückbaubau_Dauerprojekt/_Archiv/Abbau_Altlasten_8000_9000/8307_Gnadental/_standortinfo/8023_00000000_Tagebuch.xlsx",
-    "zufahrt": []
-  },
-  {
     "nummer": "8028",
     "name": "MURRHARDT",
     "lat": 48.97611111,
     "lon": 9.575277778,
     "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/8000_Bereich Stuttgart/8028_MURRHARDT/_standortinfo/Vorlagen/8028_00000000_Tagebuch.xlsx",
-    "zufahrt": []
-  },
-  {
-    "nummer": "8023",
-    "name": "Geradstetten_neu_c",
-    "lat": 48.81333333,
-    "lon": 9.441388889,
-    "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/General/infrastruktur/Projektmanagement/projekte_aufgaben/Projekt_Rückbaubau_Dauerprojekt/_Archiv/Abbau_Altlasten_8000_9000/8023_Geradstetten_neu_c/_standortinfo/8023_00000000_Tagebuch.xlsx",
-    "zufahrt": []
-  },
-  {
-    "nummer": "8023",
-    "name": "Murrhardt_neu_c",
-    "lat": 48.81333333,
-    "lon": 9.441388889,
-    "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/General/infrastruktur/Projektmanagement/projekte_aufgaben/Projekt_Rückbaubau_Dauerprojekt/_Archiv/Abbau_Altlasten_8000_9000/8028_Murrhardt_neu_c/_standortinfo/8023_00000000_Tagebuch.xlsx",
-    "zufahrt": []
-  },
-  {
-    "nummer": "8023",
-    "name": "Berglen_neu_c",
-    "lat": 48.81333333,
-    "lon": 9.441388889,
-    "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/General/infrastruktur/Projektmanagement/projekte_aufgaben/Projekt_Rückbaubau_Dauerprojekt/_Archiv/Abbau_Altlasten_8000_9000/8007_Berglen_neu_c/_standortinfo/8023_00000000_Tagebuch.xlsx",
     "zufahrt": []
   },
   {
@@ -3467,14 +3480,6 @@ const standorteDaten = [
     "lat": 49.04111111,
     "lon": 9.744444444,
     "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/8000_Bereich Stuttgart/8317_WESTHEIM-OTTENDORF/_standortinfo/Vorlagen/8317_00000000_Tagebuch.xlsx",
-    "zufahrt": []
-  },
-  {
-    "nummer": "8023",
-    "name": "GERADSTETTEN",
-    "lat": 48.81333333,
-    "lon": 9.441388889,
-    "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/8000_Bereich Stuttgart/8023_GERADSTETTEN/_standortinfo/Vorlagen/8023_00000000_Tagebuch.xlsx",
     "zufahrt": []
   },
   {
