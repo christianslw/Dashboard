@@ -1939,7 +1939,7 @@ const standorteDaten = [
     "lon": 8.478279932935493,
     "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/5000_Bereich Bodensee/5900_VILLINGEN-SCHWENNINGEN/_standortinfo/1A_5900_00000000_Tagebuch.xlsx",
     "zufahrt": [
-      [
+          [
             8.47830472802005,
             48.027536760606324
           ],
@@ -2091,7 +2091,7 @@ const standorteDaten = [
   },
   {
     "nummer": "4522",
-    "name": "",
+    "name": "Lerchenberg",
     "lat": 48.66333333,
     "lon": 8.7925,
     "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/4000_Bereich Hornisgrinde/4522_LERCHENBERG/ARCHIV/_standortinfo/4522_00000000_Tagebuch.xlsx",
@@ -2140,18 +2140,120 @@ const standorteDaten = [
   {
     "nummer": "3710",
     "name": "THOLEY",
-    "lat": null,
-    "lon": null,
+    "lat": 49.4862160195795,
+    "lon": 7.029806844956255,
     "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/3000_Bereich Donnersberg/3710_THOLEY/_standortinfo/3710_00000000_Tagebuch.xlsx",
-    "zufahrt": []
+    "zufahrt": [
+          [
+            7.029861945838775,
+            49.48629280456939
+          ],
+          [
+            7.029250335954288,
+            49.48614819301244
+          ],
+          [
+            7.029183466587597,
+            49.48629863050425
+          ],
+          [
+            7.028431828705834,
+            49.48646899155625
+          ],
+          [
+            7.027838085744321,
+            49.48679975162483
+          ],
+          [
+            7.027216347569805,
+            49.48757353241558
+          ],
+          [
+            7.027402450689436,
+            49.48812329525987
+          ],
+          [
+            7.030132903196488,
+            49.48896362218068
+          ],
+          [
+            7.031480318632276,
+            49.48907225336086
+          ],
+          [
+            7.032149132313634,
+            49.48981914975067
+          ],
+          [
+            7.032949329899168,
+            49.48981914975067
+          ],
+          [
+            7.034120024343139,
+            49.489334222544215
+          ],
+          [
+            7.03620999246732,
+            49.48946587553411
+          ],
+          [
+            7.038605204340826,
+            49.489575928969685
+          ]
+    ]
   },
   {
     "nummer": "9138",
     "name": "HARDBERG",
-    "lat": null,
-    "lon": null,
+    "lat": 49.54001196599617,
+    "lon": 8.803919340102283,
     "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/9000_Bereich Mühlacker/9138_HARDBERG/_standortinfo/9138_00000000_Tagebuch.xlsx",
-    "zufahrt": []
+    "zufahrt": [
+                [
+            8.803921437683101,
+            49.54008349062374
+          ],
+          [
+            8.804354332127389,
+            49.5392139930681
+          ],
+          [
+            8.803447315197246,
+            49.5389865834627
+          ],
+          [
+            8.802169245884869,
+            49.53997647637485
+          ],
+          [
+            8.801798193503686,
+            49.54064531158562
+          ],
+          [
+            8.80241661413902,
+            49.542518001473326
+          ],
+          [
+            8.80315871890042,
+            49.543481071183464
+          ],
+          [
+            8.804374946148727,
+            49.54369508409664
+          ],
+          [
+            8.804866181479298,
+            49.545033653342216
+          ],
+          [
+            8.804763111373603,
+            49.54548841521131
+          ],
+          [
+            8.804886795500636,
+            49.54586292180744
+          ]
+    ]
   },
   {
     "nummer": "4526",
