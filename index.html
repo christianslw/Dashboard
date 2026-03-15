@@ -33,12 +33,21 @@
             document.documentElement.classList.remove('dark');
         }
         // For custom themes, eagerly load their CSS
-        const _earlyThemeMap = { 'playful': 'themes/dracula.css' };
+        const _earlyThemeMap = { 
+            'playful': 'themes/dracula.css',
+            'kirschbluete': 'themes/kirschbluete.css',
+            'swr-ms': 'themes/swr-ms.css'
+        };
         if (_earlyThemeMap[savedTheme]) {
             document.documentElement.classList.add(savedTheme);
             const l = document.createElement('link');
             l.rel = 'stylesheet'; l.id = 'custom-theme-css'; l.href = _earlyThemeMap[savedTheme];
             document.head.appendChild(l);
+            if (savedTheme === 'swr-ms' || savedTheme === 'kirschbluete') {
+                document.documentElement.classList.remove('dark');
+            } else if (savedTheme === 'playful') {
+                document.documentElement.classList.add('dark');
+            }
         }
     </script>
     <link rel="stylesheet" href="styles.css" />

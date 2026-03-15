@@ -28,6 +28,8 @@ const warningsCache = {}, routeCache = {};
 // To add a new theme: create a .css file in themes/, then add an entry here.
 const customThemes = [
     { id: 'playful', label: 'Dracula', file: 'themes/dracula.css' },
+    { id: 'kirschbluete', label: 'Kirschblüte', file: 'themes/kirschbluete.css' },
+    { id: 'swr-ms', label: 'SWR MS', file: 'themes/swr-ms.css' },
     // { id: 'nord', label: 'Nord', file: 'themes/nord.css' },
 ];
 
@@ -83,10 +85,16 @@ function changeTheme(theme) {
     if (custom) {
         _loadCustomThemeCSS(custom);
         // Dracula-like themes force dark mode context
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        if (theme === 'playful') {
             document.documentElement.classList.add('dark');
-        } else {
+        } else if (theme === 'swr-ms' || theme === 'kirschbluete') {
             document.documentElement.classList.remove('dark');
+        } else {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
         }
     } else if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
