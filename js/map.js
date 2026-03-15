@@ -2,21 +2,34 @@
 // Leaflet Map & Clustering
 // ==========================================
 
+let osmLayer, cartoDBPositronLayer;
+
+function getThemeAwareOsmUrl(isDarkMode) {
+    return isDarkMode
+        ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+        : 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+}
+
+function getThemeAwareCartoUrl(isDarkMode) {
+    return `https://{s}.basemaps.cartocdn.com/${isDarkMode ? 'dark_all' : 'light_all'}/{z}/{x}/{y}{r}.png`;
+}
+
 function initLeafletMap() {
     leafletMap = L.map('mainMap').setView([48.6, 9.2], 7);
 
-    const isDarkMode = !document.documentElement.classList.contains('light');
-    const isPlayfulTheme = document.documentElement.classList.contains('playful');
-    const useDarkMap = isDarkMode || isPlayfulTheme;
+    const isDarkMode = document.documentElement.classList.contains('dark');
+    const useDarkMap = isDarkMode; // Respect appearance mode regardless of theme
 
-    const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap',
-        maxZoom: 19
+    osmLayer = L.tileLayer(getThemeAwareOsmUrl(useDarkMap), {
+        attribution: '© OpenStreetMap contributors, © CARTO',
+        maxZoom: 19,
+        className: 'no-filter'
     });
 
-    const cartoDBPositronLayer = L.tileLayer(`https://{s}.basemaps.cartocdn.com/${useDarkMap ? 'dark_all' : 'light_all'}/{z}/{x}/{y}{r}.png`, {
+    cartoDBPositronLayer = L.tileLayer(getThemeAwareCartoUrl(useDarkMap), {
         attribution: '© CartoDB © OpenStreetMap contributors',
-        maxZoom: 19
+        maxZoom: 19,
+        className: 'no-filter'
     });
 
     const openTopoMapLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
@@ -30,12 +43,6 @@ function initLeafletMap() {
         maxZoom: 19,
         className: 'no-filter'
     });
-
-    if (useDarkMap) {
-        cartoDBPositronLayer.addTo(leafletMap);
-    } else {
-        osmLayer.addTo(leafletMap);
-    }
 
     const hybridLayer = L.layerGroup([
         L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
@@ -63,7 +70,39 @@ function initLeafletMap() {
         'Hybrid (Satellit+Straßen)': hybridLayer
     };
 
+    const savedMap = localStorage.getItem('selectedMapLayer');
+    
+    if (savedMap && baseLayers[savedMap]) {
+        baseLayers[savedMap].addTo(leafletMap);
+    } else {
+        if (useDarkMap) {
+            cartoDBPositronLayer.addTo(leafletMap);
+        } else {
+            osmLayer.addTo(leafletMap);
+        }
+    }
+
     L.control.layers(baseLayers, {}, { position: 'topright' }).addTo(leafletMap);
+
+    leafletMap.on('baselayerchange', function(e) {
+        localStorage.setItem('selectedMapLayer', e.name);
+    });
+}
+
+function updateLeafletMapTheme() {
+    const isDarkMode = document.documentElement.classList.contains('dark');
+    const newOsmUrl = getThemeAwareOsmUrl(isDarkMode);
+    const newCartoUrl = getThemeAwareCartoUrl(isDarkMode);
+
+    if (leafletMap && cartoDBPositronLayer && osmLayer) {
+        cartoDBPositronLayer.setUrl(newCartoUrl);
+        osmLayer.setUrl(newOsmUrl);
+    }
+
+    // Update Mobile Dashboard Map if it is currently initialized
+    if (typeof dashMobileTileLayer !== 'undefined' && dashMobileTileLayer) {
+        dashMobileTileLayer.setUrl(newOsmUrl);
+    }
 }
 
 function updateMapMarkers(liste) {

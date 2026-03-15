@@ -20,86 +20,99 @@ let favoriteFilterMode = 'all';
 const warningsCache = {}, routeCache = {};
 
 // ==========================================
-// Theme
+// Theme and Appearance
 // ==========================================
 
-// Registry of custom themes from the themes/ folder.
-// Each entry: { id: 'css-class-on-html', label: 'Display Name', file: 'themes/filename.css' }
-// To add a new theme: create a .css file in themes/, then add an entry here.
 const customThemes = [
-    { id: 'playful', label: 'Dracula', file: 'themes/dracula.css' },
+    { id: 'standard', label: 'Standard', file: '' },
+    { id: 'dracula', label: 'Dracula', file: 'themes/dracula.css' },
+    { id: 'dracula-laser', label: 'Dracula Laser', file: 'themes/dracula-laser.css' },
     { id: 'kirschbluete', label: 'Kirschblüte', file: 'themes/kirschbluete.css' },
-    { id: 'swr-ms', label: 'SWR MS', file: 'themes/swr-ms.css' },
-    // { id: 'nord', label: 'Nord', file: 'themes/nord.css' },
+    { id: 'swr-ms', label: 'SWR MS', file: 'themes/swr-ms.css' }
 ];
 
-/** Remove any previously loaded custom-theme <link> and HTML class */
-function _removeCustomTheme() {
-    const old = document.getElementById('custom-theme-css');
-    if (old) old.remove();
+let currentAppearance = localStorage.getItem('appearance') || 'system';
+let currentColorTheme = localStorage.getItem('colorTheme') || 'standard';
+
+function changeAppearance(mode) {
+    currentAppearance = mode;
+    localStorage.setItem('appearance', mode);
+    applyThemeAndAppearance();
+}
+
+function changeColorTheme(themeId) {
+    currentColorTheme = themeId;
+    localStorage.setItem('colorTheme', themeId);
+    applyThemeAndAppearance();
+}
+
+function applyThemeAndAppearance() {
+    const oldLink = document.getElementById('custom-theme-css');
+    if (oldLink) oldLink.remove();
     customThemes.forEach(t => document.documentElement.classList.remove(t.id));
-}
 
-/** Load a custom theme's CSS file dynamically */
-function _loadCustomThemeCSS(theme) {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.id = 'custom-theme-css';
-    link.href = theme.file;
-    document.head.appendChild(link);
-    document.documentElement.classList.add(theme.id);
-}
+    const theme = customThemes.find(t => t.id === currentColorTheme) || customThemes[0];
+    if (theme && theme.id !== 'standard') {
+        document.documentElement.classList.add(theme.id);
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.id = 'custom-theme-css';
+        link.href = theme.file;
+        document.head.appendChild(link);
+    }
 
-/** Populate the theme <select> dropdown with base + custom themes */
-function populateThemeSelect() {
-    const sel = document.getElementById('themeSelect');
-    if (!sel) return;
-    sel.innerHTML = '';
+    let isDark = false;
+    if (currentAppearance === 'dark') {
+        isDark = true;
+    } else if (currentAppearance === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        isDark = true;
+    }
 
-    // Base options
-    const baseOptions = [
-        { value: 'system', label: 'System-Design' },
-        { value: 'light',  label: 'Helles Design' },
-        { value: 'dark',   label: 'Dunkles Design (OLED)' },
-    ];
-    baseOptions.forEach(o => {
-        const opt = document.createElement('option');
-        opt.value = o.value;
-        opt.textContent = o.label;
-        sel.appendChild(opt);
-    });
-
-    // Custom themes from the registry
-    customThemes.forEach(t => {
-        const opt = document.createElement('option');
-        opt.value = t.id;
-        opt.textContent = t.label;
-        sel.appendChild(opt);
-    });
-}
-
-function changeTheme(theme) {
-    _removeCustomTheme();
-
-    const custom = customThemes.find(t => t.id === theme);
-    if (custom) {
-        _loadCustomThemeCSS(custom);
-        // Dracula-like themes force dark mode context
-        if (theme === 'playful') {
-            document.documentElement.classList.add('dark');
-        } else if (theme === 'swr-ms' || theme === 'kirschbluete') {
-            document.documentElement.classList.remove('dark');
-        } else {
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-        }
-    } else if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    if (isDark) {
         document.documentElement.classList.add('dark');
     } else {
         document.documentElement.classList.remove('dark');
     }
-    localStorage.setItem('theme', theme);
+    
+    updateSettingsUI();
+    if (typeof updateLeafletMapTheme === 'function') {
+        updateLeafletMapTheme();
+    }
+}
+
+function updateSettingsUI() {
+    ['light', 'dark', 'system'].forEach(mode => {
+        const btn = document.getElementById(`btn-appearance-${mode}`);
+        if(btn) {
+            if (mode === currentAppearance) {
+                btn.classList.add('bg-blue-100', 'text-blue-700', 'border-blue-500', 'dark:bg-blue-900/50', 'dark:text-blue-300');
+                btn.classList.remove('bg-white', 'text-slate-700', 'border-slate-300', 'dark:bg-zinc-900', 'dark:text-zinc-300');
+            } else {
+                btn.classList.remove('bg-blue-100', 'text-blue-700', 'border-blue-500', 'dark:bg-blue-900/50', 'dark:text-blue-300');
+                btn.classList.add('bg-white', 'text-slate-700', 'border-slate-300', 'dark:bg-zinc-900', 'dark:text-zinc-300');
+            }
+        }
+    });
+
+    customThemes.forEach(t => {
+        const btn = document.getElementById(`btn-theme-${t.id}`);
+        if(btn) {
+            if (t.id === currentColorTheme) {
+                btn.classList.add('bg-blue-100', 'text-blue-700', 'border-blue-500', 'dark:bg-blue-900/50', 'dark:text-blue-300');
+                btn.classList.remove('bg-white', 'text-slate-700', 'border-slate-300', 'dark:bg-zinc-900', 'dark:text-zinc-300');
+            } else {
+                btn.classList.remove('bg-blue-100', 'text-blue-700', 'border-blue-500', 'dark:bg-blue-900/50', 'dark:text-blue-300');
+                btn.classList.add('bg-white', 'text-slate-700', 'border-slate-300', 'dark:bg-zinc-900', 'dark:text-zinc-300');
+            }
+        }
+    });
+}
+
+function openSettingsModal() {
+    updateSettingsUI();
+    document.getElementById('settingsModal').classList.remove('hidden');
+}
+
+function closeSettingsModal() {
+    document.getElementById('settingsModal').classList.add('hidden');
 }

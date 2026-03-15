@@ -3,10 +3,7 @@
 // ==========================================
 
 window.onload = () => {
-    populateThemeSelect();
-    const theme = localStorage.getItem('theme') || 'system';
-    document.getElementById('themeSelect').value = theme;
-    changeTheme(theme);
+    applyThemeAndAppearance();
     loadFavorites();
     loadFilterState();
 

@@ -61,9 +61,8 @@ function setupMobileMap(standort) {
     }
     
     // Thema-Status prüfen und Tile-Layer passend laden (verhindert grelle Karte im Darkmode)
-    const isDarkMode = !document.documentElement.classList.contains('light');
-    const isPlayfulTheme = document.documentElement.classList.contains('playful');
-    const useDarkMap = isDarkMode || isPlayfulTheme;
+    const isDarkMode = document.documentElement.classList.contains('dark');
+    const useDarkMap = isDarkMode;
     const tileUrl = useDarkMap 
         ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png' 
         : 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';

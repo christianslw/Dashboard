@@ -4,6 +4,8 @@
 
 /* ===== SECTION 1: BASE STYLES ===== */
 
+html { font-size: 12px; } /* 75% zoom scaling. Browser default is 16px. Tailwind uses rems, so this scales the entire UI down. */
+
 /* Scrollbar */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -15,10 +17,10 @@
 .modal-enter-active { opacity: 1; transform: scale(1) translateY(0); transition: all 0.2s ease-out; }
 
 /* Dark mode Leaflet filter */
-.dark .leaflet-layer:not(.no-filter),
-.dark .leaflet-control-zoom-in,
-.dark .leaflet-control-zoom-out,
-.dark .leaflet-control-attribution {
+html.dark:not(.dracula):not(.dracula-laser) .leaflet-layer:not(.no-filter),
+html.dark:not(.dracula):not(.dracula-laser) .leaflet-control-zoom-in,
+html.dark:not(.dracula):not(.dracula-laser) .leaflet-control-zoom-out,
+html.dark:not(.dracula):not(.dracula-laser) .leaflet-control-attribution {
 	filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
 }
 

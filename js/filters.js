@@ -148,8 +148,24 @@ function resetAllFilters() {
 
 function toggleFilterMenu() {
     const panel = document.getElementById('filterMenuPanel');
-    if (!panel) return;
-    panel.classList.toggle('hidden');
+    const btn = document.getElementById('filterMenuButton');
+    if (!panel || !btn) return;
+    const isHidden = panel.classList.contains('hidden');
+    if (isHidden) {
+        // Position using fixed so overflow:hidden parents don't clip
+        const rect = btn.getBoundingClientRect();
+        panel.style.position = 'fixed';
+        panel.style.top = (rect.bottom + 4) + 'px';
+        // Align right edge of panel to right edge of button
+        const panelWidth = 480;
+        let left = rect.right - panelWidth;
+        if (left < 8) left = 8; // don't go off-screen left
+        panel.style.left = left + 'px';
+        panel.style.width = Math.min(panelWidth, window.innerWidth - 16) + 'px';
+        panel.classList.remove('hidden');
+    } else {
+        panel.classList.add('hidden');
+    }
 }
 
 function closeFilterMenu() {

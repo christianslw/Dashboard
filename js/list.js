@@ -115,7 +115,7 @@ function openTagebuch(nummer) {
 }
 
 function handleListItemClick(event, nummer) {
-    if (event.shiftKey) {
+    if (event.altKey) {
         openTagebuch(nummer);
     } else if (event.ctrlKey || event.metaKey) {
         openRouteNavigation(nummer);
