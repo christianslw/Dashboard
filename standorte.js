@@ -1084,7 +1084,100 @@ const standorteDaten = [
     "lat": 48.03972222,
     "lon": 8.896666667,
     "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/5000_Bereich Bodensee/5013_MUEHLHEIM_DONAU/_standortinfo/5013_00000000_Tagebuch.xlsx",
-    "zufahrt": []
+    "zufahrt": [
+                [
+            8.89676880523433,
+            48.03983410354758
+          ],
+          [
+            8.896494212230067,
+            48.040206227394975
+          ],
+          [
+            8.89648061072782,
+            48.04035573570272
+          ],
+          [
+            8.896551611366817,
+            48.040556327127035
+          ],
+          [
+            8.896410675508008,
+            48.04057409556307
+          ],
+          [
+            8.896143573347103,
+            48.04091394472542
+          ],
+          [
+            8.89602361194801,
+            48.0420362358405
+          ],
+          [
+            8.89623561414055,
+            48.042551367633706
+          ],
+          [
+            8.896444176343635,
+            48.042772979320716
+          ],
+          [
+            8.896107817266113,
+            48.04359613513046
+          ],
+          [
+            8.896001113810058,
+            48.04372190882788
+          ],
+          [
+            8.895779261365163,
+            48.04378203704903
+          ],
+          [
+            8.895160494382537,
+            48.043774625435844
+          ],
+          [
+            8.894809214683107,
+            48.04392770250101
+          ],
+          [
+            8.894319393808104,
+            48.04431513604575
+          ],
+          [
+            8.894113617251122,
+            48.044983796585285
+          ],
+          [
+            8.893450077489035,
+            48.04563408942235
+          ],
+          [
+            8.892256636067742,
+            48.0462149779691
+          ],
+          [
+            8.892224939071781,
+            48.046455134912605
+          ],
+          [
+            8.892688292665923,
+            48.047084048327974
+          ],
+          [
+            8.892996700698149,
+            48.047950687123574
+          ],
+          [
+            8.893562439558082,
+            48.0489006160675
+          ],
+          [
+            8.89347156473923,
+            48.05022418862421
+          ]
+    ]
   },
   {
     "nummer": "5007",
@@ -2506,14 +2599,6 @@ const standorteDaten = [
     "zufahrt": []
   },
   {
-    "nummer": "5013",
-    "name": "MUEHLHEIM_DONAU",
-    "lat": 48.03972222,
-    "lon": 8.896666667,
-    "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/5000_Bereich Bodensee/5013_MUEHLHEIM_DONAU/_standortinfo/5013_00000000_Tagebuch (version 1).xlsb.xlsx",
-    "zufahrt": []
-  },
-  {
     "nummer": "4521",
     "name": "BADEN-BADEN_Funkhaus",
     "lat": null,
@@ -2559,14 +2644,6 @@ const standorteDaten = [
     "lat": 49.79833333,
     "lon": 7.586111111,
     "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/3000_Bereich Donnersberg/3031_MONZINGEN/_standortinfo/3031_00000000_Tagebuch.xlsx",
-    "zufahrt": []
-  },
-  {
-    "nummer": "8024",
-    "name": "KIRCHBERG_MURR",
-    "lat": 48.93916667,
-    "lon": 9.345,
-    "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/8000_Bereich Stuttgart/8024_KIRCHBERG_MURR/_standortinfo/Vordruck/8024_00000000_Tagebuch.xlsx",
     "zufahrt": []
   },
   {
@@ -3520,14 +3597,6 @@ const standorteDaten = [
     "lat": 49.63472222,
     "lon": 7.813888889,
     "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/3000_Bereich Donnersberg/3033_ROCKENHAUSEN/_standortinfo/3033_00000000_Tagebuch.xlsx",
-    "zufahrt": []
-  },
-  {
-    "nummer": "3701",
-    "name": "GOETTELBORNER_HOEHE",
-    "lat": 49.34055556,
-    "lon": 7.015555556,
-    "link": "https://suedwestrundfunk.sharepoint.com/sites/SWR_T_PV-Standorte/Freigegebene Dokumente/3000_Bereich Donnersberg/3701_GOETTELBORNER_HOEHE/_standortinfo/3701_00000000_Tagebuch_alt.xlsx",
     "zufahrt": []
   },
   {
