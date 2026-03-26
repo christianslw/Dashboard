@@ -22,28 +22,30 @@ async function fetchDWD(lat, lon) {
 function getDwdLevelBox(severity) {
     const normalizedSeverity = typeof severity === 'string' ? severity.toLowerCase() : '';
     const baseClass = "rounded-[4px] px-1.5 py-[2px] text-[10px] uppercase font-bold tracking-wide border";
-    if (normalizedSeverity === 'moderate' || normalizedSeverity === 'minor')
+    if (normalizedSeverity === 'minor')
         return `<span class="${baseClass} border-yellow-500 bg-yellow-500/20 text-yellow-700 dark:text-yellow-400">Stufe 1</span>`;
-    if (normalizedSeverity === 'severe')
+    if (normalizedSeverity === 'moderate')
         return `<span class="${baseClass} border-orange-500 bg-orange-500/20 text-orange-700 dark:text-orange-400">Stufe 2</span>`;
-    if (normalizedSeverity === 'extreme')
+    if (normalizedSeverity === 'severe')
         return `<span class="${baseClass} border-red-500 bg-red-500/20 text-red-700 dark:text-red-400">Stufe 3</span>`;
+    if (normalizedSeverity === 'extreme')
+        return `<span class="${baseClass} border-purple-600 bg-purple-600/20 text-purple-700 dark:text-purple-400">Stufe 4</span>`;
     return '';
 }
 
 function getDwdSeverityRank(severity) {
     const normalizedSeverity = typeof severity === 'string' ? severity.toLowerCase() : '';
 
-    if (normalizedSeverity === 'extreme') return 3;
-    if (normalizedSeverity === 'severe') return 2;
-    if (normalizedSeverity === 'moderate') return 1;
-    if (normalizedSeverity === 'minor') return 0;
-    return -1;
+    if (normalizedSeverity === 'extreme') return 4;
+    if (normalizedSeverity === 'severe') return 3;
+    if (normalizedSeverity === 'moderate') return 2;
+    if (normalizedSeverity === 'minor') return 1;
+    return 0;
 }
 
 function getHighestDwdAlert(alerts) {
     return alerts.reduce((highest, alert) => {
-        if (getDwdSeverityRank(alert?.severity) <= 0) return highest;
+        if (getDwdSeverityRank(alert?.severity) < 1) return highest;
         if (!highest) return alert;
         return getDwdSeverityRank(alert.severity) > getDwdSeverityRank(highest.severity) ? alert : highest;
     }, null);
@@ -79,7 +81,7 @@ async function updateDWDDetailBox(lat, lon) {
         title.innerText = "Keine amtlichen Warnungen";
         title.className = "text-sm font-semibold text-green-600 dark:text-green-500";
     } else {
-        const isSevere = getDwdSeverityRank(mainAlert.severity) >= 2;
+        const isSevere = getDwdSeverityRank(mainAlert.severity) >= 3;
         box.className = `p-3 border-t ${isSevere ? 'bg-red-50/50 dark:bg-red-900/20 border-red-200 dark:border-red-900/50' : 'bg-orange-50/50 dark:bg-orange-900/20 border-orange-200 dark:border-orange-900/50'}`;
         title.innerText = mainAlert.headline_de || "Wetterwarnung";
         title.className = `text-sm font-bold ${isSevere ? 'text-red-700 dark:text-red-400' : 'text-orange-700 dark:text-orange-400'}`;
